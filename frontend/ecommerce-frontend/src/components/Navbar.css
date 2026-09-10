@@ -1,0 +1,127 @@
+.navbar {
+  border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+}
+
+.navbar__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 1.25rem 2rem;
+}
+
+.navbar__logo {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-ink);
+  letter-spacing: -0.01em;
+}
+
+.navbar__links {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.95rem;
+  color: var(--color-ink-soft);
+}
+
+.navbar__links a:hover {
+  color: var(--color-ink);
+}
+
+.navbar__actions {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  font-size: 0.9rem;
+}
+
+.navbar__actions button {
+  color: var(--color-ink-soft);
+  font-size: 0.9rem;
+}
+
+.navbar__actions button:hover {
+  color: var(--color-accent);
+}
+
+.navbar__cart {
+  position: relative;
+  font-weight: 500;
+}
+
+.navbar__cart-count {
+  position: absolute;
+  top: -8px;
+  right: -14px;
+  background-color: var(--color-accent);
+  color: var(--color-surface);
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 1px 6px;
+  border-radius: 999px;
+}
+
+/* Botón hamburguesa: oculto en desktop */
+.navbar__toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+}
+
+.navbar__toggle span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background-color: var(--color-ink);
+}
+
+.navbar__mobile-menu {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .navbar__row {
+    padding: 1rem 1.25rem;
+  }
+
+  .navbar__links--desktop,
+  .navbar__actions--desktop {
+    display: none;
+  }
+
+  .navbar__toggle {
+    display: flex;
+  }
+
+  .navbar__mobile-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem 1.25rem 1.5rem;
+    border-top: 1px solid var(--color-border);
+    font-size: 1rem;
+  }
+
+  .navbar__mobile-menu hr {
+    border: none;
+    border-top: 1px solid var(--color-border);
+    margin: 0.25rem 0;
+  }
+
+  .navbar__mobile-menu a,
+  .navbar__mobile-menu button {
+    text-align: left;
+    color: var(--color-ink);
+  }
+
+  .navbar__mobile-menu button:hover,
+  .navbar__mobile-menu a:hover {
+    color: var(--color-accent);
+  }
+}

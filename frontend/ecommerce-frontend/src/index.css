@@ -1,0 +1,45 @@
+:root {
+  --color-bg: #EFEBE3;
+  --color-surface: #F7F5F0;
+  --color-ink: #231F1C;
+  --color-ink-soft: #5C5650;
+  --color-accent: #7A2331;
+  --color-accent-hover: #611B26;
+  --color-border: #D6D0C4;
+
+  --font-display: 'Fraunces', serif;
+  --font-body: 'Inter', sans-serif;
+
+  --radius: 2px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+  border: none;
+  background: none;
+}
