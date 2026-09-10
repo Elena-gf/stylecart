@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer__top">
-        <span className="footer__logo">StyleCart</span>
+        <span className="footer__logo">ANELE</span>
 
         <nav className="footer__links">
           <Link to="/products">Shop</Link>
@@ -15,7 +15,7 @@ const Footer = () => {
         </nav>
       </div>
 
-      <p className="footer__bottom">© {year} StyleCart. All rights reserved.</p>
+      <p className="footer__bottom">© {year} ANELE. All rights reserved.</p>
     </footer>
   );
 };

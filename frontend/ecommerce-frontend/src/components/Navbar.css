@@ -13,17 +13,19 @@
 
 .navbar__logo {
   font-family: var(--font-display);
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: 1.3rem;
+  font-weight: 700;
   color: var(--color-ink);
-  letter-spacing: -0.01em;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
 }
 
 .navbar__links {
   display: flex;
   gap: 1.5rem;
-  font-size: 0.95rem;
-  color: var(--color-ink-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.8rem;
 }
 
 .navbar__links a:hover {
@@ -34,12 +36,16 @@
   display: flex;
   align-items: center;
   gap: 1.25rem;
-  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.8rem;
 }
 
 .navbar__actions button {
   color: var(--color-ink-soft);
-  font-size: 0.9rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
 
 .navbar__actions button:hover {
@@ -63,7 +69,6 @@
   border-radius: 999px;
 }
 
-/* Botón hamburguesa: oculto en desktop */
 .navbar__toggle {
   display: none;
   flex-direction: column;

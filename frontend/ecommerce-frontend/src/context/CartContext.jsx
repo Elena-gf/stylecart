@@ -9,7 +9,7 @@ export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  // cada vez que cambia el token (login o logout), recargamos el carrito
+  
   useEffect(() => {
     if (token) {
       fetchCart();

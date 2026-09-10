@@ -1,10 +1,10 @@
-# StyleCart
+# ANELE
 
 A full-stack e-commerce app for a clothing store, built as the final project for the Full Stack Web Development bootcamp. Users can browse products by category, manage a shopping cart, place orders, and track their order history. Admins can manage the product catalog and order statuses.
 
 ## Description
 
-StyleCart is a full-stack application for an online clothing shop, with a React frontend and an Express/MongoDB backend. It covers user registration and authentication (JWT with access/refresh tokens), a product catalog organized by categories, a per-user shopping cart, and an order system with stock validation.
+ANELE is a full-stack application for an online clothing shop, with a React frontend and an Express/MongoDB backend. It covers user registration and authentication (JWT with access/refresh tokens), a product catalog organized by categories, a per-user shopping cart, and an order system with stock validation.
 
 **Core features:**
 - User registration and login with hashed passwords (bcrypt)
@@ -147,20 +147,15 @@ frontend/
 
 ## Design Decisions
 
-A few choices made deliberately for this project, worth explaining in case they come up:
+Some choices I made on purpose, in case they come up:
 
-- **State management via Context API, not Redux.** The app only needs two pieces of shared state (the logged-in user and the cart), which doesn't justify Redux's boilerplate. `AuthProvider` wraps `CartProvider` since the cart depends on the current auth token.
-- **Products have a single fixed `size`/`color`/`stock`, not a variants array.** A simpler model than a full size/color variant matrix — if the same design comes in multiple colors, each is a separate product document. This keeps the schema and cart/order logic straightforward while still supporting a full multi-product catalog.
-- **The signup endpoint always forces `role: "user"`.** Admin accounts are never self-assignable through the API; they're created by manually editing a user's role in the database (see "Creating an admin user" above). This avoids a privilege-escalation bug where anyone could register as an admin.
-- **`priceAtPurchase` is stored on each order item.** Orders keep the price paid at checkout time, independent of later changes to a product's price, so order history stays accurate.
-- **Stock validation runs in two passes.** When placing an order, the app first checks that every cart item has enough stock, and only then deducts stock and creates the order. This avoids partially deducting stock if a later item in the cart turns out to be unavailable.
-- **The contact form is UI-only.** It's not wired to a real backend endpoint, since messaging isn't part of the app's core data model (`User`, `Product`, `Category`, `Order`). In a production version, it would call a Nodemailer-based endpoint (already used for the signup welcome email) or store messages in a dedicated collection.
-- **The JWT access token is valid for 2 hours.** Balances security (a stolen token has a limited window) against usability (users aren't forced to re-login constantly during a session).
-
+- **Context API instead of Redux.** I only needed to share two things across the app: the logged-in user and the cart. That's not enough to justify Redux. `AuthProvider` wraps `CartProvider` because the cart needs the user's token to work.
+- **Products have one fixed size/color/stock, not a list of variants.** Instead of one product with multiple size/color combinations, each color or size is its own product in the database. Simpler to build and still lets me have a full catalog.
+- **Signup always creates a normal user, never an admin.** You can't sign up as admin through the API — admins are created by editing the role manually in the database. Otherwise anyone could register and give themselves admin access.
+- **Orders save the price at the time of purchase.** If I change a product's price later, past orders still show what the customer actually paid.
+- **Stock is checked before anything is changed.** When someone places an order, the app checks all items have enough stock first, and only then updates the stock and creates the order. This avoids leaving stock partially updated if one item in the cart runs out.
+- **The contact form doesn't send anything for real.** It's just UI — there's no backend behind it, since messages aren't part of the main data (users, products, orders). In a real version, it would use the same email setup already used for the signup email.
+- **Login tokens last 2 hours.** Long enough that I don't get logged out constantly while testing, short enough to still be reasonably secure.
 ## Author
 
-[Your Name](https://github.com/your-username)
-
-## Version
-
-1.0.0
+Elena García Flecha (https://github.com/elena39788)

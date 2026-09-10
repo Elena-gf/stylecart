@@ -23,7 +23,7 @@
   }
   
   .product-list__error {
-    color: var(--color-accent);
+    color: var(--color-error);
   }
   
   .product-list__grid {

@@ -2,7 +2,7 @@ const orderModel = require("../models/orderModel");
 const productModel = require("../models/productModel");
 const userModel = require("../models/userModel");
 
-// Crea un pedido a partir del carrito actual del usuario
+
 const createOrder = async (req, res) => {
   try {
     const userId = req.payload._id;
@@ -17,7 +17,7 @@ const createOrder = async (req, res) => {
       return res.status(400).send({ status: "Failed", message: "El carrito está vacío" });
     }
 
-    // PRIMERA PASADA: validar todo antes de tocar nada
+   
     const products = [];
     for (const cartItem of user.cart) {
       const product = await productModel.findById(cartItem.product);
@@ -33,7 +33,7 @@ const createOrder = async (req, res) => {
       products.push({ product, quantity: cartItem.quantity });
     }
 
-    // SEGUNDA PASADA: ya sabemos que todo es válido, ahora sí modificamos
+    
     const items = [];
     let totalPrice = 0;
 
@@ -80,7 +80,6 @@ const getOrderById = async (req, res) => {
       return res.status(404).send({ status: "Failed", message: "Pedido no encontrado" });
     }
 
-    // Un usuario normal solo puede ver sus propios pedidos
     if (req.payload.role !== "admin" && order.user.toString() !== req.payload._id) {
       return res.status(403).send({ status: "Failed", message: "No tienes permiso para ver este pedido" });
     }
@@ -91,7 +90,7 @@ const getOrderById = async (req, res) => {
   }
 };
 
-// Solo admin: ver todos los pedidos
+
 const getAllOrders = async (req, res) => {
   try {
     const orders = await orderModel.find().populate("items.product").populate("user", "name email");
@@ -101,7 +100,7 @@ const getAllOrders = async (req, res) => {
   }
 };
 
-// Solo admin: actualizar estado del pedido
+
 const updateOrderStatus = async (req, res) => {
   try {
     const { id } = req.params;

@@ -1,7 +1,7 @@
 const userModel = require("../models/userModel");
 const productModel = require("../models/productModel");
 
-// Devuelve el carrito del usuario con la info completa de cada producto
+
 const getCart = async (req, res) => {
   try {
     const userId = req.payload._id;

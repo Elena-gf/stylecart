@@ -58,7 +58,7 @@
   }
   
   .product-detail__stock--out {
-    color: var(--color-accent);
+    color: var(--color-error);
   }
   
   .product-detail__quantity {
@@ -82,7 +82,7 @@
   }
   
   .product-detail__error {
-    color: var(--color-accent);
+    color: var(--color-error);
     margin-bottom: 1rem;
   }
   

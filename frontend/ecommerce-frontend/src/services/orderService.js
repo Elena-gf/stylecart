@@ -41,7 +41,7 @@ export const getOrderById = async (token, id) => {
   return data.data;
 };
 
-// Solo admin
+// solo admin
 export const getAllOrders = async (token) => {
   const response = await fetch(`${API_URL}/orders`, {
     headers: { 'auth-token': token },

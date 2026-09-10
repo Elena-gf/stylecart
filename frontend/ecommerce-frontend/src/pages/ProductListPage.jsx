@@ -10,14 +10,14 @@ const ProductListPage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
-  // Carga las categorías una sola vez, al montar la página
+  
   useEffect(() => {
     getAllCategories()
       .then(setCategories)
       .catch(() => setError('Could not load categories'));
   }, []);
 
-  // Carga los productos cada vez que cambia el filtro de categoría
+ 
   useEffect(() => {
     setLoading(true);
     const filters = selectedCategory ? { category: selectedCategory } : {};

@@ -19,7 +19,7 @@ const Navbar = () => {
   return (
     <header className="navbar">
       <div className="navbar__row">
-        <Link to="/" className="navbar__logo" onClick={closeMenu}>StyleCart</Link>
+        <Link to="/" className="navbar__logo" onClick={closeMenu}>ANELE</Link>
 
         <button
           className="navbar__toggle"

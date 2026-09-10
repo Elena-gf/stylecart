@@ -25,7 +25,7 @@ const CheckoutPage = () => {
     try {
       const order = await createOrder(token, shippingAddress);
       setConfirmedOrder(order);
-      await fetchCart(); // el backend ya vació el carrito, refrescamos el estado local
+      await fetchCart(); 
     } catch (err) {
       setError(err.message);
     } finally {
@@ -33,7 +33,7 @@ const CheckoutPage = () => {
     }
   };
 
-  // Pantalla de confirmación tras crear el pedido
+  
   if (confirmedOrder) {
     return (
       <div className="checkout-confirmation">

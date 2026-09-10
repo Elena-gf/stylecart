@@ -9,7 +9,6 @@ const ContactPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Nota: no hay endpoint de backend para esto, es solo un formulario visual
     setSent(true);
     setName('');
     setEmail('');

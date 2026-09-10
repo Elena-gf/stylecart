@@ -62,6 +62,6 @@
   }
   
   .profile-page__error {
-    color: var(--color-accent);
+    color: var(--color-error);
     margin: 0;
   }

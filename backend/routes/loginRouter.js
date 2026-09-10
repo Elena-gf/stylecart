@@ -5,7 +5,6 @@ const router = express.Router();
 
 router.post('/signup', signup);
 router.post('/login', login);
-// SOLO ESTE ENDPOINT PUEDE USAR TOKEN DE REFRESCO
 router.get('/refresh-token', verifyToken, refreshToken);
 
 module.exports = router;

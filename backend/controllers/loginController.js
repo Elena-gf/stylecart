@@ -10,7 +10,7 @@ const signup = async (req, res) => {
       name,
       email,
       password: await bcrypt.hash(password, 10),
-      role: "user", // siempre forzado a "user", nunca desde el body
+      role: "user",
     };
 
     await userModel.create(newUser);

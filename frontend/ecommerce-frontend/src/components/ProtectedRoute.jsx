@@ -4,7 +4,7 @@ import { useAuth } from '../context/AuthContext';
 const ProtectedRoute = ({ children }) => {
   const { user, loading } = useAuth();
 
-  // Mientras comprobamos si hay sesión guardada, no decidimos nada todavía
+  
   if (loading) {
     return <p>Cargando...</p>;
   }

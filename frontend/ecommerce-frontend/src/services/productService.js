@@ -1,6 +1,6 @@
 const API_URL = 'http://localhost:4000/api';
 
-// filters puede incluir { category, size, color }
+
 export const getAllProducts = async (filters = {}) => {
   const params = new URLSearchParams(filters).toString();
   const url = params ? `${API_URL}/products?${params}` : `${API_URL}/products`;
@@ -31,7 +31,7 @@ export const getAllCategories = async () => {
   return data.data;
 };
 
-// Estas tres requieren rol admin en el backend
+
 export const createProduct = async (token, productData) => {
   const response = await fetch(`${API_URL}/products`, {
     method: 'POST',

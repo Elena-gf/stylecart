@@ -26,5 +26,5 @@ export const login = async (email, password) => {
     throw new Error('Email o contraseña incorrectos');
   }
 
-  return response.json(); // { user, token, token_refresh }
+  return response.json(); 
 };
